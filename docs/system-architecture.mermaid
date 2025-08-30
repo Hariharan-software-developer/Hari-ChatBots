@@ -1,0 +1,15 @@
+graph TD
+    A[User] -->|Types message| B[React Chatbot UI]
+    B -->|Sends API request| C[API Server (Groq/Llama3)]
+    C -->|Processes prompt| D[LLM Model]
+    D -->|Returns response| C
+    C -->|Sends response| B
+    B -->|Displays reply| A
+
+    subgraph Frontend
+      B
+    end
+    subgraph Backend
+      C
+      D
+    end

@@ -1,5 +1,133 @@
 # React + Vite
+# Hari ChatBot
 
+>A modern, professional ChatGPT-like chatbot UI built with React, TailwindCSS, and Groq Llama3 API.
+
+---
+
+## System Architecture
+
+```mermaid
+%% System Architecture Diagram
+graph TD
+		A[User] -->|Types message| B[React Chatbot UI]
+		B -->|Sends API request| C[API Server (Groq/Llama3)]
+		C -->|Processes prompt| D[LLM Model]
+		D -->|Returns response| C
+		C -->|Sends response| B
+		B -->|Displays reply| A
+
+		subgraph Frontend
+			B
+		end
+		subgraph Backend
+			C
+			D
+		end
+```
+
+---
+
+## Components & Workflow
+
+### 1. User (Client)
+- Interacts with the chatbot UI, types messages, and views responses.
+
+### 2. React Chatbot UI (Frontend)
+- Built with React and TailwindCSS for a modern, responsive design.
+- Handles user input, displays chat history, and manages chat sessions.
+- Sends user messages to the backend API and displays responses.
+
+### 3. API Server (Groq/Llama3)
+- Receives chat requests from the frontend.
+- Forwards messages to the Llama3 LLM model for processing.
+- Returns generated responses to the frontend.
+
+### 4. LLM Model (Llama3)
+- Processes the prompt and generates a relevant, human-like response.
+
+---
+
+## Workflow Process
+
+1. **User** types a message in the chat UI.
+2. **Frontend** sends the message to the backend API endpoint.
+3. **API Server** receives the message and forwards it to the LLM model.
+4. **LLM Model** generates a response and sends it back to the API server.
+5. **API Server** returns the response to the frontend.
+6. **Frontend** displays the response in the chat UI.
+
+---
+
+## Example API Response
+
+```json
+{
+	"id": "chatcmpl-123",
+	"object": "chat.completion",
+	"created": 1714400000,
+	"model": "llama3-8b-8192",
+	"choices": [
+		{
+			"index": 0,
+			"message": {
+				"role": "assistant",
+				"content": "Hello! How can I help you today?"
+			},
+			"finish_reason": "stop"
+		}
+	]
+}
+```
+
+---
+
+## Project Structure
+
+```
+├── public/
+│   └── ai-generated-8747658_1920.jpg
+├── src/
+│   ├── components/
+│   │   └── Chatbot.jsx
+│   ├── App.jsx
+│   ├── App.css
+│   └── index.css
+├── docs/
+│   └── system-architecture.mermaid
+├── index.html
+├── package.json
+└── README.md
+```
+
+---
+
+## How to Run
+
+1. Clone the repo and install dependencies:
+	 ```bash
+	 git clone <repo-url>
+	 cd chatbot-Hari
+	 npm install
+	 ```
+2. Add your Groq API key to a `.env` file as `VITE_GROQ_API_KEY`.
+3. Start the development server:
+	 ```bash
+	 npm run dev
+	 ```
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## System Diagram
+
+![System Diagram](docs/system-architecture.mermaid)
+
+---
+
+## License
+
+MIT
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
