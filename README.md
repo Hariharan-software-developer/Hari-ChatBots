@@ -1,30 +1,21 @@
 # React + Vite
 # Hari ChatBot
 
->A modern, professional ChatGPT-like chatbot UI built with React, TailwindCSS, and Groq Llama3 API.
+A modern, professional ChatGPT-like chatbot UI built with React, TailwindCSS, and Groq Llama3 API.
 
 ---
 
+
+
 ## System Architecture
 
-```mermaid
-%% System Architecture Diagram
-graph TD
-		A[User] -->|Types message| B[React Chatbot UI]
-		B -->|Sends API request| C[API Server (Groq/Llama3)]
-		C -->|Processes prompt| D[LLM Model]
-		D -->|Returns response| C
-		C -->|Sends response| B
-		B -->|Displays reply| A
+![System Architecture](architecture-diagram.png)
 
-		subgraph Frontend
-			B
-		end
-		subgraph Backend
-			C
-			D
-		end
-```
+---
+
+## Workflow Chart
+
+![Workflow Chart](workflow-chart.png)
 
 ---
 
@@ -119,11 +110,7 @@ graph TD
 
 ---
 
-## System Diagram
 
-![System Diagram](docs/system-architecture.mermaid)
-
----
 
 ## License
 
